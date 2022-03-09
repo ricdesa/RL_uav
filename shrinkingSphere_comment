@@ -1,0 +1,29 @@
+Spiego come ho implementato la sfera attorno al target
+1) Funzione Reset
+  - Ad ogni reset aumenta un contatore N
+  - epsilon = epsilon0 * (1 - N/Episodi)
+  
+2) Funzione isArrived
+  - Ad ogni step calcola la distanza tra il baricentro dell'UAV e il target
+  - Compara questa distanza all'epsilon corrente
+  - se (r - epsilon) <0 si attiva un flag isarrived
+  
+3) Funzione Reward
+  - Ad ogni step controlla il valore del flag isarrived
+  - Se isarrived == 1 il Reward viene devinito come la somma del reward fino all'istante dell'attivazione del flag + gli step rimanenti
+  
+4) Funzione isDone
+  - Se isarrived == 1 viene terminato l'episodio.
+  
+Primo Problema : Nell'allenamento non so quanti episodi ci saranno, piuttosto so il numero di passi totali. Questo a causa del isDone (Episodi posssono essere molto meno lunghi 
+del max_Steps_per_episode. Ho messo nell'ambiente da allenare un numero indicativo di episodi nell'allenamento--> non è assicurato che a fine training la sfera sia esattamente
+un punto, ma da prove che ho fatto stamattina e ieri il valore Episodi sembra buono.
+
+Secondo Problema : il contatore dell'ambiente di valutazione rimane molto indietro rispetto al valore dell'ambiente di training perchè viene richiamato dopo che ogni ambiente 
+ha svolto 8192 passi di simulazione. Anche in questo caso so i passi ma non gli episodi, comunuque Episodi per l'ambiente di valutazione è più piccolo in modo da avere un andamento 
+di espilon simile all'ambiente di training.
+
+Nella cartella dei risultati ci sono due simulazioni con valori di Episodi diversi da quelli impostati.
+
+Nel frattempo ho controllato un buon numero di articoli della bibliografia dell'articolo e non ho trovato ancora i coefficienti, perciò vede i coefficienti che ho ipotizzato,
+continuo la ricerca.
