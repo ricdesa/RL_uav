@@ -23,6 +23,10 @@ Secondo Problema : il contatore dell'ambiente di valutazione rimane molto indiet
 ha svolto 8192 passi di simulazione. Anche in questo caso so i passi ma non gli episodi, comunuque Episodi per l'ambiente di valutazione è più piccolo in modo da avere un andamento 
 di espilon simile all'ambiente di training.
 
+Osservazione : Dopo la definizione di epsilon ad ogni reset (self.sphere) ho commentato un print utile a vedere l'andamento del raggio. Essendo nel mio caso impiegati 6 core 
+in parallelo, si vede che l'andamento del raggio è globalmente linearmente decrescente ma localmente (dipende sempre dal fatto gli episodi hanno lunghezza non predicibile causa isDone)
+non è sempre decrescente. A lungo andare questo effetto mi pare comunque ininfluente nei risultati.
+
 Nella cartella dei risultati ci sono due simulazioni con valori di Episodi diversi da quelli impostati.
 
 Nel frattempo ho controllato un buon numero di articoli della bibliografia dell'articolo e non ho trovato ancora i coefficienti, perciò vede i coefficienti che ho ipotizzato,
