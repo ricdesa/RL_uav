@@ -16,18 +16,19 @@ Spiego come ho implementato la sfera attorno al target
   - Se isarrived == 1 viene terminato l'episodio.
   
 Primo Problema : Nell'allenamento non so quanti episodi ci saranno, piuttosto so il numero di passi totali. Questo a causa del isDone (Episodi posssono essere molto meno lunghi 
-del max_Steps_per_episode. Ho messo nell'ambiente da allenare un numero indicativo di episodi nell'allenamento--> non è assicurato che a fine training la sfera sia esattamente
+del max_Steps_per_episode). Ho messo nell'ambiente da allenare un numero indicativo di episodi nell'allenamento--> non è assicurato che a fine training la sfera sia esattamente
 un punto, ma da prove che ho fatto stamattina e ieri il valore Episodi sembra buono.
 
 Secondo Problema : il contatore dell'ambiente di valutazione rimane molto indietro rispetto al valore dell'ambiente di training perchè viene richiamato dopo che ogni ambiente 
 ha svolto 8192 passi di simulazione. Anche in questo caso so i passi ma non gli episodi, comunuque Episodi per l'ambiente di valutazione è più piccolo in modo da avere un andamento 
 di espilon simile all'ambiente di training.
 
-Osservazione : Dopo la definizione di epsilon ad ogni reset (self.sphere) ho commentato un print utile a vedere l'andamento del raggio. Essendo nel mio caso impiegati 6 core 
+Osservazione : Dopo la definizione di epsilon ad ogni reset (self.sphere) c'è un print utile per vedere l'andamento del raggio. Essendo nel mio caso impiegati 6 core 
 in parallelo, si vede che l'andamento del raggio è globalmente linearmente decrescente ma localmente (dipende sempre dal fatto gli episodi hanno lunghezza non predicibile causa isDone)
 non è sempre decrescente. A lungo andare questo effetto mi pare comunque ininfluente nei risultati.
 
-Nella cartella dei risultati ci sono due simulazioni con valori di Episodi diversi da quelli impostati.
+Nella cartella dei risultati ci sono due simulazioni con valori di Episodi diversi da quelli impostati negli esepmi svolti, dove ho notato che la sfera si riduceva troppo
+velocemente nell'ambiente di training e troppo lentamente nell'ambiente di valutazione.
 
 Nel frattempo ho controllato un buon numero di articoli della bibliografia dell'articolo e non ho trovato ancora i coefficienti, perciò vede i coefficienti che ho ipotizzato,
 continuo la ricerca.
