@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     ### AGENT MODEL AND CALLBACK DEFINITION
 
-    eval_env = DummyVecEnv([lambda : QuadcoptEnv_6DOF(Random_reset=False, Process_perturbations=False, NumEpi=400)]) # Definition of one evaluation environment
+    eval_env = DummyVecEnv([lambda : QuadcoptEnv_6DOF(Random_reset=False, Process_perturbations=False, NumEpi=406)]) # Definition of one evaluation environment
     eval_callback = EvalCallback(eval_env, best_model_save_path='./EvalClbkLogs/',
                              log_path='./EvalClbkLogs/npyEvals/', n_eval_episodes=1, eval_freq=8192,
                              deterministic=True, render=False)
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     for i in range(1, 100): ## policies name format "PPO_Quad_<numberOfAttempt>.zip"
 
         # check for file existance
-        filename_check = "C:/Users/ricca/Desktop/Tesi/ReinforcementLearning-main/Stable_Baselines2_Frame/QuadEnvTest_6DOF/Policies/PPO_Quad_" + str(i) + ".zip"
+        filename_check = "C:/Users/ricca/Desktop/Tesi/ReinforcementLearning-main/Stable_Baselines2_Frame/QuadEnvTest_6DOF_shrinkingSphere/Policies/PPO_Quad_" + str(i) + ".zip"
         print("file number ", i, " == ", os.path.exists(filename_check))
 
         if os.path.exists(filename_check) == False:
