@@ -13,7 +13,7 @@ class QuadcoptEnv_6DOF(gym.Env):
   """Quadcopter Environment that follows gym interface"""
   metadata = {'render.modes': ['human']}
 
-  def __init__(self, Random_reset=False, Process_perturbations=False, NumEpi=30000, Lx=0.34, Ly=0.34, motor_mass=0.04, body_mass=0.484,
+  def __init__(self, Random_reset=False, Process_perturbations=False, NumEpi=25010, Lx=0.34, Ly=0.34, motor_mass=0.04, body_mass=0.484,
               batt_payload_mass=0.186, prop_D=0.2032, Prop_Ct=0.1087, Prop_Cp=0.0477, Max_prop_RPM=8500):
     super(QuadcoptEnv_6DOF, self).__init__()
 
