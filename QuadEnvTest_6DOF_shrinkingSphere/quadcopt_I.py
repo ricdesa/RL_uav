@@ -119,11 +119,11 @@ class QuadcoptEnv_6DOF(gym.Env):
     self.Command_scaling_factor = 0.35 # Coefficient to scale commands when evaluating throttles of motors
     # given the control actions    
     
-    self.CdA = np.array([0.05, 0.05, 0.5]) #[kg/s] drag constant on linear aerodynamical drag model
+    self.CdA = np.array([0., 0., 0.,)]#np.array([0.05, 0.05, 0.5]) #[kg/s] drag constant on linear aerodynamical drag model
     # linear aerodynamics considered self.Sn = np.array([0.02, 0.02, 0.05]) #[m^2] Vector of normal surfaces to main body axes to calculate drag
     # Zb normal surface is greater than othe two  
 
-    self.C_DR = np.array([0.02, 0.02, 0.001]) # [kg m^2/s] coefficients are evaluated with aid of the 
+    self.C_DR = np.array([0., 0., 0.,)]#np.array([0.02, 0.02, 0.001]) # [kg m^2/s] coefficients are evaluated with aid of the 
     # Arena and apoleoni thesis
     
 
