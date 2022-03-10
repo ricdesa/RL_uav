@@ -150,7 +150,7 @@ class QuadcoptEnv_6DOF(gym.Env):
     self.Theta_Gaol = 0.
     self.Psi_Goal = 0.
 
-    self.sphere = 0.5
+    self.sphere = 0.25
     self.countersphere = 0.
 
   def step(self, action):
@@ -217,12 +217,12 @@ class QuadcoptEnv_6DOF(gym.Env):
       Reset state 
       """
       self.countersphere += 1.
-      self.sphere = 0.5 - (0.5 * (self.countersphere/self.NumEpi))
+      self.sphere = 0.25 - (0.25 * (self.countersphere/self.NumEpi))
       print("Shrinking sphere is ", self.sphere)
       if self.Random_reset:
         angle = np_normal(0., np.pi)
         w_reset = np_normal(0., 0.025) #[m/s]
-        Z_reset = np_normal(0., 2.5) #[m]
+        Z_reset = 2 * cos(angle) #[m]
         u_reset = np_normal(0., 0.025) #[m/s]
         X_reset = 2 * cos(angle)#[m]
         v_reset = np_normal(0., 0.025) #[m/s]
@@ -310,7 +310,7 @@ class QuadcoptEnv_6DOF(gym.Env):
 
       if isarrived :
 
-          NewReward = R + (self.max_Episode_time_steps - self.elapsed_time_steps)
+          NewReward = R + (self.max_Episode_time_steps - self.elapsed_time_steps) * (2 - self.sphere/0.5) 
           R = NewReward
 
       if R >= 0:
