@@ -43,4 +43,4 @@ di raggio maggiore. Prima di rifare il modello matematico dell'articolo metto un
 da garantire un guadagno maggiore anche negli stadi iniziali dell'allenamento se si raggiunge il target ma al tempo stesso premiare di più il raggiungimento 
 della sfera quando questa è più piccola (all'istante 1 avrei 1/2*(Ntot-elapsed_timesteps) e quando la sfera è ad esempio 1/4 di quella iniziale 7/8*(Ntot-elapsed_timesteps)
 Agg. 20.24 10/03/2022
-Allego risultati di 25 simulazioni con l'agente allenato con l'accorgimento dell'aggiornamento precedente. Sembra aver funzionato.
+Allego risultati di 25 simulazioni con l'agente allenato con l'accorgimento dell'aggiornamento precedente (SimulationResults_1003). Sembra aver funzionato.
