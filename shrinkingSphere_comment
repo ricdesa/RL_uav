@@ -39,9 +39,9 @@ Agg. 09.13 10/03/2022
 Questione sul Reward : negli allenamenti svolti vedo che il 'best_model' si ottiene sempre intorno ad un terzo dell'allenamento, questo secondo me perchè ad un terzo epsilon
 è crica due terzi di quello iniziale, per il quadricottero è perciò più vicino, l'episodio è più breve e il guadagno (Ntot-elapsed_timesteps) è grande. Quando la sfera
 si rimpicciolisce il quad passa più tempo fuori (anche pochi timesteps in più) e il guadagno finale risulta essere più piccolo rispetto a quello ottenuto con una sfera
-di raggio maggiore. Prima di rifare il modello matematico dell'articolo metto un termine a moltiplicare (Ntot -elapsed_timesteps) del tipo (1 - epsilon/(2*epsilon0)) in modo
+di raggio maggiore. Prima di rifare il modello matematico dell'articolo metto un termine a moltiplicare (Ntot -elapsed_timesteps) del tipo (2 - epsilon/(2*epsilon0)) in modo
 da garantire un guadagno maggiore anche negli stadi iniziali dell'allenamento se si raggiunge il target ma al tempo stesso premiare di più il raggiungimento 
-della sfera quando questa è più piccola (all'istante 1 avrei 1/2*(Ntot-elapsed_timesteps) e quando la sfera è ad esempio 1/4 di quella iniziale 7/8*(Ntot-elapsed_timesteps)
+della sfera quando questa è più piccola (all'istante 1 avrei 3/2*(Ntot-elapsed_timesteps) e quando la sfera è ad esempio 1/4 di quella iniziale 15/8*(Ntot-elapsed_timesteps)
 Agg. 20.24 10/03/2022
 Allego risultati di 25 simulazioni con l'agente allenato con l'accorgimento dell'aggiornamento precedente (SimulationResulats_1003). Sembra aver funzionato.
 L'Agente è il PPO_Quad_3, il modello migliore (nella cartella EvalClbkLogs) è best_model_1003
