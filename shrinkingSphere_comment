@@ -45,3 +45,6 @@ della sfera quando questa è più piccola (all'istante 1 avrei 1/2*(Ntot-elapsed
 Agg. 20.24 10/03/2022
 Allego risultati di 25 simulazioni con l'agente allenato con l'accorgimento dell'aggiornamento precedente (SimulationResulats_1003). Sembra aver funzionato.
 L'Agente è il PPO_Quad_3, il modello migliore (nella cartella EvalClbkLogs) è best_model_1003
+
+Agg. 15.13 11/03/2022
+Trovati i valori dei guadagni usati da Pi et al. nell'articolo. Mando un'email con l'articolo, che tra l'altro propone un sistema di compensazione dei disturbi interessante.
